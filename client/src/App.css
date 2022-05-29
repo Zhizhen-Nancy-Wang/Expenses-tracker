@@ -1,0 +1,16 @@
+.wrapper{
+  min-height: 85vh;
+}
+
+.center{
+  margin-top:3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.center form {
+  width: 400px;
+  padding: 2rem ;
+  border-radius: 1rem;
+  background-color: rgb(206, 229, 241);
+}
