@@ -1,11 +1,15 @@
 
 import React, { useState } from 'react'
-import { Button, Form } from 'react-bootstrap'
+import { Alert, Button, Form } from 'react-bootstrap'
 import Layout from '../../components/layout/Layout'
 import { postUser } from '../../helpers/axiosHelper'
 
 export const Register = () => {
   const [form,setForm]= useState({})
+  const [response, setResponse]=useState({
+    status:"",
+    message:"",
+  })
 
 
 const handleOnChange=(e)=>{
@@ -17,8 +21,8 @@ const handleOnChange=(e)=>{
 const handleOnSubmit=async(e)=>{
 e.preventDefault();
 const result = await postUser(form)
+  setResponse(result)
 console.log(result, "call api to send this data to the server")
-
 }
 
   return (
@@ -26,6 +30,11 @@ console.log(result, "call api to send this data to the server")
       <div className='center'>
 
       <Form onSubmit={handleOnSubmit}>
+        <h3>Register New User</h3>
+        <hr/>
+        {
+        response.message &&<Alert variant={response.status==="success"?"success":"danger"}>{response.message}</Alert>
+        }
           <Form.Group className="mb-3" controlId="formGroupEmail" >
             <Form.Label>Name</Form.Label>
             <Form.Control t onChange={handleOnChange}ype="text" name="name" placeholder="Enter your name" required/>

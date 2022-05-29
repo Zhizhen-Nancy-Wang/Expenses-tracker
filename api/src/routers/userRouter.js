@@ -16,9 +16,13 @@ router.post("/",async(req,res)=>{
     })
 
   } catch (error) {
+    let message =error.message
+    if (message.includes('E11000 duplicate key error')){
+      message="This email is already registered"
+    }
     res.json({
       status: "error",
-      message: error.message
+      message
     })
 }})
 

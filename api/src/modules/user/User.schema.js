@@ -16,8 +16,8 @@ email: {
 password: {
   type: String,
   required: true,
-  maxLength: [50, 'Password must be more than 5 characters'],
-  minLength: [5, 'Password must be less than 50 characters']
+  maxLength: [50, 'Password must be less than 50 characters'],
+  minLength: [5, 'Password must be more than 5 characters']
 },
 },
 {
