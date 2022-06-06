@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const createConnection =()=>{
+const createConnection =() => {
   try{
     const connect = mongoose.connect(process.env.MONGO_URL)
     connect && console.log("connected to mongoDB")

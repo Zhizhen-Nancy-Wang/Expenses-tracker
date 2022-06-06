@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react'
 import { Alert, Button, Form } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import Layout from '../../components/layout/Layout'
 import { postUser } from '../../helpers/axiosHelper'
 
@@ -53,6 +54,11 @@ console.log(result, "call api to send this data to the server")
           <Form.Group className="mb-3" controlId="formGroupPassword" >
            <Button variant="primary" type="submit" size="sm" >Register</Button>
           </Form.Group>
+
+
+          <div>
+            <p>Already have an account?<Link to="/"> Login</Link></p>
+          </div>
       </Form>
 
       </div>
